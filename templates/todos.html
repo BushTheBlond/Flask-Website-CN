@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>What Songs would you like me to sing?</h1>
+<br>
+<div>
+    <img src="{{ url_for('static', filename='images/micdrop1.png')}}" width=25% alt="Sweet mic">
+</div>
+
+<div>
+    <div id="task-box">
+        <h3>List of your Requests</h3>
+
+        <ul>
+            {% for task in task_list %}
+            {% if "now" in task%}
+            <strong>!Important</strong>
+            {% endif %}
+            <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+<div>
+    <!-- <button> onclick="</button> -->
+</div>
+    <div>
+
+        <button onclick="taskHider()">Show/Hide Songs</button>
+        <form action="/todos" method="POST">               <!-- POST is a variation of GET that allows information to be sent when filling a form -->
+            <input type="text" name="task-input" id="task-input">
+            <input type="submit" value="Song Request">
+
+        </form>
+    </div>
+</div>
+{% endblock %}

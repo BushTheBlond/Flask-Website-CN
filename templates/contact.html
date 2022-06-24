@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>All my up and coming Gigs</h1>
+<div>
+    <img src="{{ url_for('static', filename='images/keytar.png')}}" width=25% alt="Sweet keytar">
+</div>
+<hr/>
+<h3><u>Places to find me performing me </u></h3>
+
+<p>None as of right now! Stay tuned for more!</p>
+
+<ul>
+    <li>Email me for performance inquiries : cscanlan92@hotmail.co.uk</li>
+</ul>
+<br><br><br>
+<ol>
+<div class="date-show">
+    <h3>The current date/time is:</h3>
+        <span id="date" onload="displayDate()"></span>
+        <script>document.getElementById("date").innerHTML = Date();</script>
+</div>
+
+</ol>
+{% endblock %}
+
+
+<!-- <span id="date" onload="displayDate()"></span>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>document.getElementById("date").innerHTML = Date();</script> -->

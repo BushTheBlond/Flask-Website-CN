@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Looking for Band members! Want to start a band with me?</h1>
+<br>
+<div>
+    <div>
+        <img src="{{ url_for('static', filename='images/bandlife1.png')}}" width=50% alt="Cool Band">
+    </div>
+    <div>
+        <h3>Leave your email address below, along with your instrument of choice!</h3>
+    </div>
+    <div id="task-box">
+        <ul>
+            {% for task in task_list %}
+            {% if "now" in task%}
+            <strong>!Important</strong>
+            {% endif %}
+            <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+<div>
+    <!-- <button> onclick="</button> -->
+</div>
+    <div>
+
+        <button onclick="taskHider()">Show/Hide Email</button>
+        <form action="/band" method="POST">               <!-- POST is a variation of GET that allows information to be sent when filling a form -->
+            <input type="text" name="task-input" id="task-input">
+            <input type="submit" value="Submit Email/Details">
+
+        </form>
+    </div>
+</div>
+{% endblock %}
